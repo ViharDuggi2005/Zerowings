@@ -1,0 +1,317 @@
+.product-page {
+  font-family: "Inter", sans-serif;
+  background: #f5f5f3;
+}
+
+/* HERO */
+.product-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 8%;
+  background: url("../assets/images/bg1.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.product-hero img {
+  width: 500px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.tagline {
+  font-size: 18px;
+  margin: 20px 0;
+  color: #666;
+}
+
+.cta-button {
+  padding: 14px 28px;
+  background: #111;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* TABS */
+/* TAB CONTAINER */
+.product-tabs {
+  display: flex;
+  margin: 0;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 20px 20px 0 0;
+  border: 2px solid #000000;
+  border-bottom: 2px solid #000;
+  overflow: hidden;
+}
+
+/* Default tab */
+.product-tabs button {
+  flex: 1;
+  padding: 20px 0;
+  border: none;
+  border-right: 2px solid #000000;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+  color: #555;
+}
+
+.product-tabs button:last-child {
+  border-right: none;
+}
+
+.product-tabs button:hover {
+  background: rgba(0, 188, 212, 0.15);
+}
+
+/* ACTIVE TAB (more specific selector) */
+.product-tabs button.active-tab {
+  //background: linear-gradient(90deg, #0097a7, #007c91);
+  background: #00bcd4;
+  color: white;
+  font-weight: 600;
+}
+
+.product-tabs button:first-child {
+  border-top-left-radius: 20px;
+}
+
+.product-tabs button:last-child {
+  border-top-right-radius: 20px;
+}
+
+.tab-content {
+  padding: 0;
+}
+
+.tab-card {
+  //background: linear-gradient(90deg, #e0f7fa, #00bcd4);
+  background: #e0e3e5;
+  border-radius: 0 0 24px 24px;
+  padding: 40px 50px;
+  box-shadow: 0 20px 40px rgba(0, 188, 212, 0.15);
+  border: 2px solid #000000;
+  border-top: none;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Overview Section */
+.overview-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overview-section p {
+  font-size: 22px;
+  line-height: 1.8;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  max-width: 900px;
+}
+
+/* Performance Section */
+.performance-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.performance-section p {
+  font-size: 22px;
+  line-height: 1.8;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  max-width: 900px;
+}
+
+/* Features Grid Layout */
+.features-section {
+  padding: 20px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 40px;
+  width: 100%;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #0097a7, #00bcd4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+}
+
+.feature-text {
+  font-size: 17px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.5;
+}
+
+.spec-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 24px;
+  padding: 40px 50px;
+  gap: 30px;
+}
+
+/* Each spec column */
+.spec-bar-item {
+  flex: 1;
+  text-align: left;
+}
+
+/* Small heading */
+.spec-bar-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* Big bold value */
+.spec-bar-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+}
+
+.floating-tab-section {
+  width: 84%;
+  margin: 0 auto 40px auto;
+  position: relative;
+  z-index: 10;
+}
+
+.product-description-section {
+  padding: 100px 0;
+  background: #f5f5f3;
+}
+
+.product-description-container {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.product-description-container p {
+  font-size: 22px;
+  line-height: 1.9;
+  color: #6b6b6b;
+}
+
+/* PERFORMANCE INTRO SECTION */
+
+.performance-block {
+  padding: 120px 0;
+  text-align: center;
+  background: #f5f5f3;
+}
+
+.performance-heading {
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 60px;
+}
+
+.performance-hero-image img {
+  width: 70%;
+  border-radius: 24px;
+  margin-bottom: 40px;
+}
+
+.performance-subtext {
+  width: 60%;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #6b6b6b;
+}
+
+/* FEATURE BLOCKS */
+
+.feature-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  padding: 40px 10%;
+}
+
+.feature-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.feature-image img {
+  width: 550px;
+  border-radius: 24px;
+}
+
+.feature-content {
+  max-width: 500px;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-number {
+  font-size: 140px;
+  font-weight: 700;
+  color: rgba(210, 190, 140, 0.35); /* soft beige */
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.feature-content h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.feature-content p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #6b6b6b;
+}

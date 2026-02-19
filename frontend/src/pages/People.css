@@ -1,580 +1,141 @@
-/* ===== PEOPLE PAGE - MODERN GEN-Z AESTHETIC ===== */
-
-/* Color Palette */
 :root {
-  --color-bg-primary: #fafaf8;
-  --color-bg-secondary: #f5f3f0;
-  --color-accent-orange: #ff8c42;
-  --color-accent-orange-light: #ffb347;
-  --color-accent-blue: #66d9ef;
-  --color-accent-green: #a1e8af;
-  --color-accent-purple: #d4a5ff;
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #6b6b6b;
-  --color-text-muted: #999999;
-  --color-border-light: #e8e8e8;
-  --color-shadow: rgba(0, 0, 0, 0.08);
-  --color-shadow-strong: rgba(0, 0, 0, 0.12);
+  --teal-primary: #008080;
+  --teal-light: #e6f2f2;
+  --white: #ffffff;
+  --text-dark: #1a2b2b;
 }
 
-/* Typography */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap");
-
-* {
-  box-sizing: border-box;
-}
-
-/* ===== CONTAINER & BACKGROUND ===== */
-.people-container {
+.people-page {
+  background-color: var(--white);
   min-height: 100vh;
-  background: linear-gradient(
-    135deg,
-    var(--color-bg-primary) 0%,
-    var(--color-bg-secondary) 100%
-  );
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  color: var(--color-text-primary);
-  position: relative;
-  overflow-x: hidden;
+  padding: 60px 20px;
+  font-family: "Inter", sans-serif;
 }
 
-/* Decorative background shapes */
-.people-bg-decoration {
-  position: fixed;
-  pointer-events: none;
-  opacity: 0.4;
-  z-index: 0;
-}
-
-.people-bg-decoration--top-left {
-  top: -100px;
-  left: -100px;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(
-    circle,
-    var(--color-accent-orange) 0%,
-    transparent 70%
-  );
-  border-radius: 50%;
-  filter: blur(60px);
-}
-
-.people-bg-decoration--top-right {
-  top: 10%;
-  right: -80px;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(
-    circle,
-    var(--color-accent-blue) 0%,
-    transparent 70%
-  );
-  border-radius: 50%;
-  filter: blur(60px);
-}
-
-.people-bg-decoration--bottom-left {
-  bottom: -150px;
-  left: 5%;
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(
-    circle,
-    var(--color-accent-green) 0%,
-    transparent 70%
-  );
-  border-radius: 50%;
-  filter: blur(60px);
-}
-
-/* ===== HEADER SECTION ===== */
 .people-header {
-  position: relative;
-  z-index: 1;
-  padding: 80px 24px 60px;
   text-align: center;
+  margin-bottom: 80px;
 }
 
-.people-header-content {
-  max-width: 700px;
+.teal-text {
+  color: var(--teal-primary);
+}
+
+.canvas-container {
+  position: relative;
+  max-width: 1100px;
   margin: 0 auto;
-  animation: fadeInUp 0.8s ease-out;
+  height: 900px; /* Adjust based on amount of people */
 }
 
-.people-header-title {
-  font-family: "Poppins", sans-serif;
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin: 0 0 16px;
-  background: linear-gradient(
-    135deg,
-    var(--color-text-primary) 0%,
-    var(--color-accent-orange) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.02em;
-}
-
-.people-header-subtitle {
-  font-size: 1.1rem;
-  color: var(--color-text-secondary);
-  font-weight: 400;
-  line-height: 1.6;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-
-/* ===== SECTION HEADER ===== */
-.section-header {
-  margin-bottom: 48px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  animation: fadeInUp 0.8s ease-out 0.1s backwards;
-}
-
-.section-title {
-  font-family: "Poppins", sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
-  color: var(--color-text-primary);
-  letter-spacing: -0.01em;
-}
-
-.section-divider {
-  flex: 1;
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--color-accent-orange) 0%,
-    transparent 100%
-  );
-  border-radius: 2px;
-  max-width: 300px;
-}
-
-/* ===== FOUNDERS SECTION ===== */
-.founders-section {
-  position: relative;
-  z-index: 1;
-  padding: 60px 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.founders-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 48px;
-  margin-top: 0;
-}
-
-/* Founder Card */
-.founder-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 10px 40px var(--color-shadow);
-  transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
-  animation: fadeInUp 0.8s ease-out 0.2s backwards;
-}
-
-.founder-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px var(--color-shadow-strong);
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.founder-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    var(--color-accent-orange) 0%,
-    var(--color-accent-blue) 100%
-  );
-  opacity: 0;
-  transition: opacity 300ms ease-out;
-  pointer-events: none;
-  border-radius: 16px;
-}
-
-.founder-card:hover::before {
-  opacity: 0.05;
-}
-
-.founder-card-image-wrapper {
-  position: relative;
-  height: 320px;
-  overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    var(--color-bg-secondary) 0%,
-    var(--color-bg-primary) 100%
-  );
-}
-
-.founder-card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 300ms ease-out;
-}
-
-.founder-card:hover .founder-card-image {
-  transform: scale(1.05);
-}
-
-.founder-card-content {
-  padding: 32px 24px;
-  position: relative;
-  z-index: 2;
-}
-
-.founder-name {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 0 8px;
-  color: var(--color-text-primary);
-  letter-spacing: -0.01em;
-}
-
-.founder-role {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--color-accent-orange);
-  margin: 0 0 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.founder-description {
-  font-size: 0.95rem;
-  color: var(--color-text-secondary);
-  line-height: 1.6;
-  margin: 0 0 20px;
-  font-weight: 400;
-}
-
-.founder-social-links {
-  display: flex;
-  gap: 12px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.founder-social-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--color-bg-secondary);
-  border-radius: 50%;
-  color: var(--color-accent-orange);
-  transition: all 200ms ease-out;
-  cursor: pointer;
-  border: 1.5px solid transparent;
-  text-decoration: none;
-}
-
-.founder-social-icon svg {
-  width: 20px;
-  height: 20px;
-}
-
-.founder-social-icon:hover {
-  background: var(--color-accent-orange);
-  color: white;
-  transform: translateY(-3px);
-  border-color: var(--color-accent-orange);
-}
-
-.founder-social-icon--linkedin:hover {
-  background: #0a66c2;
-}
-
-.founder-social-icon--github:hover {
-  background: #1f2937;
-}
-
-/* ===== INTERNS SECTION ===== */
-.interns-section {
-  position: relative;
-  z-index: 1;
-  padding: 60px 24px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.interns-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 24px;
-}
-
-/* Intern Card */
-.intern-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0 8px 30px var(--color-shadow);
-  transition: all 280ms cubic-bezier(0.34, 1.56, 0.64, 1);
-  animation: fadeInUp 0.6s ease-out 0.3s backwards;
-}
-
-.intern-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 48px var(--color-shadow-strong);
-}
-
-.intern-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    var(--color-accent-green) 0%,
-    var(--color-accent-blue) 100%
-  );
-  opacity: 0;
-  transition: opacity 280ms ease-out;
-  mix-blend-mode: overlay;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.intern-card:hover::after {
-  opacity: 0.1;
-}
-
-.intern-card-image-wrapper {
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%;
-  overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    var(--color-bg-secondary) 0%,
-    var(--color-bg-primary) 100%
-  );
-}
-
-.intern-card-image {
+/* The SVG Curves */
+.bg-curves {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 300ms ease-out;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.intern-card:hover .intern-card-image {
-  transform: scale(1.08);
-}
-
-.intern-card-content {
-  padding: 16px;
-  text-align: center;
+.people-floating-grid {
   position: relative;
-  z-index: 3;
+  z-index: 2;
+  height: 100%;
 }
 
-.intern-name {
-  font-family: "Poppins", sans-serif;
+/* Base Card Style */
+.person-card {
+  position: absolute;
+  background: var(--white);
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 128, 128, 0.1);
+  width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.person-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  z-index: 10;
+}
+
+.image-box {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--teal-light);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.teal-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--teal-primary), #00b3b3);
+}
+
+.person-info h3 {
   font-size: 1rem;
-  font-weight: 700;
-  margin: 0 0 4px;
-  color: var(--color-text-primary);
-  letter-spacing: -0.01em;
-}
-
-.intern-role {
-  font-size: 0.85rem;
-  color: var(--color-accent-orange);
-  font-weight: 500;
   margin: 0;
-  letter-spacing: 0.03em;
+  color: var(--text-dark);
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.person-info span {
+  font-size: 0.8rem;
+  color: var(--teal-primary);
+  font-weight: 500;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+/* Random Placement Logic */
+.pos-1 {
+  top: 10%;
+  left: 15%;
+  width: 240px;
+} /* Founder 1 larger */
+.pos-2 {
+  top: 15%;
+  right: 10%;
+  width: 240px;
+} /* Founder 2 larger */
+.pos-3 {
+  top: 45%;
+  left: 40%;
+}
+.pos-4 {
+  top: 55%;
+  left: 10%;
+}
+.pos-5 {
+  top: 70%;
+  right: 20%;
+}
+.pos-6 {
+  top: 80%;
+  left: 30%;
+}
+
+/* Styling for founders to pop more */
+.founder {
+  border: 2px solid var(--teal-primary);
+}
+
 @media (max-width: 768px) {
-  .people-header-title {
-    font-size: 2.5rem;
+  .canvas-container {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
-
-  .people-header-subtitle {
-    font-size: 1rem;
+  .person-card {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100%;
   }
-
-  .people-header {
-    padding: 60px 20px 40px;
-  }
-
-  .founders-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .interns-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 16px;
-  }
-
-  .section-title {
-    font-size: 1.75rem;
-  }
-
-  .section-divider {
-    max-width: 200px;
-  }
-
-  .founder-card-image-wrapper {
-    height: 260px;
-  }
-
-  .founder-card-content {
-    padding: 24px 20px;
-  }
-
-  .people-bg-decoration--top-left {
-    width: 280px;
-    height: 280px;
-    top: -80px;
-    left: -80px;
-  }
-
-  .people-bg-decoration--top-right {
-    width: 220px;
-    height: 220px;
-    right: -60px;
-    top: 5%;
-  }
-
-  .people-bg-decoration--bottom-left {
-    width: 250px;
-    height: 250px;
-    bottom: -100px;
-  }
-}
-
-@media (max-width: 480px) {
-  .people-header-title {
-    font-size: 2rem;
-  }
-
-  .people-header {
-    padding: 40px 16px 30px;
-  }
-
-  .people-header-subtitle {
-    font-size: 0.95rem;
-  }
-
-  .founders-section,
-  .interns-section {
-    padding: 40px 16px;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .founders-grid {
-    gap: 24px;
-  }
-
-  .founder-card-image-wrapper {
-    height: 220px;
-  }
-
-  .founder-card-content {
-    padding: 20px 16px;
-  }
-
-  .founder-name {
-    font-size: 1.25rem;
-  }
-
-  .founder-role {
-    font-size: 0.8rem;
-  }
-
-  .founder-description {
-    font-size: 0.9rem;
-  }
-
-  .interns-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 12px;
-  }
-
-  .intern-name {
-    font-size: 0.95rem;
-  }
-
-  .intern-role {
-    font-size: 0.8rem;
-  }
-
-  .people-bg-decoration {
+  .bg-curves {
     display: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* ===== PRINT STYLES ===== */
-@media print {
-  .people-bg-decoration {
-    display: none;
-  }
-
-  .founder-card,
-  .intern-card {
-    break-inside: avoid;
   }
 }

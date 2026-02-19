@@ -1,0 +1,263 @@
+.people2-page {
+  background: #ffffff;
+  min-height: 100vh;
+  padding: 60px 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.people2-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.people2-header h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 20px 0;
+}
+
+.people2-header p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
+.teal-text {
+  color: #00bcd4;
+}
+
+.people2-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 700px;
+}
+
+/* Decorative dots */
+.dots-cluster {
+  position: absolute;
+  z-index: 1;
+}
+
+.left-cluster {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  width: 80px;
+  gap: 12px;
+  padding: 10px;
+}
+
+.right-cluster {
+  right: 40px;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  background-color: #00bcd4;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* People grid */
+.people2-grid {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.person-circle {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Circle styles - Main large circle */
+.person-circle.main {
+  width: 350px;
+  height: 350px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Top-left circle */
+.person-circle.top-left {
+  width: 260px;
+  height: 260px;
+  left: 8%;
+  top: 10%;
+}
+
+/* Top-right circle */
+.person-circle.top-right {
+  width: 260px;
+  height: 260px;
+  right: 8%;
+  top: 15%;
+}
+
+/* Bottom-right circle */
+.person-circle.bottom-right {
+  width: 200px;
+  height: 200px;
+  right: 15%;
+  bottom: 20%;
+}
+
+/* Bottom-left circle */
+.person-circle.bottom-left {
+  width: 220px;
+  height: 220px;
+  left: 12%;
+  bottom: 15%;
+}
+
+.circle-background {
+  position: absolute;
+  inset: 0;
+  background-color: #ff9500;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.circle-stroke {
+  position: absolute;
+  inset: 0;
+  border: 4px solid #000000;
+  border-radius: 50%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.circle-content {
+  position: absolute;
+  inset: 0;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.person-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.person-details {
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 150%;
+  z-index: 3;
+}
+
+.person-circle.main .person-details {
+  bottom: -100px;
+}
+
+.person-details h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 4px 0;
+}
+
+.person-details p {
+  font-size: 0.85rem;
+  color: #ff9500;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .people2-header h1 {
+    font-size: 2rem;
+  }
+
+  .people2-container {
+    height: 1000px;
+  }
+
+  .person-circle.main {
+    width: 220px;
+    height: 220px;
+  }
+
+  .person-circle.top-left,
+  .person-circle.top-right {
+    width: 160px;
+    height: 160px;
+  }
+
+  .person-circle.bottom-left,
+  .person-circle.bottom-right {
+    width: 140px;
+    height: 140px;
+  }
+
+  .left-cluster {
+    display: none;
+  }
+
+  .right-cluster {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .person-details {
+    font-size: 0.8rem;
+  }
+
+  .person-details h3 {
+    font-size: 0.9rem;
+  }
+
+  .person-details p {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .people2-container {
+    height: auto;
+    min-height: 600px;
+  }
+
+  .person-circle {
+    position: relative !important;
+    margin: 80px 0 !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    width: 150px !important;
+    height: 150px !important;
+    transform: none !important;
+  }
+
+  .people2-grid {
+    flex-direction: column;
+  }
+}

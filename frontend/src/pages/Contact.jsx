@@ -1,4 +1,8 @@
 import { useState } from "react";
+import locationIcon from "../assets/icons/location.png";
+import emailIcon from "../assets/icons/email.png";
+import phoneIcon from "../assets/icons/phone.png";
+import hoursIcon from "../assets/icons/hours.png";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -8,6 +12,9 @@ export default function Contact() {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -16,58 +23,104 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     console.log("Form submitted:", formData);
+
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     // Reset form
     setFormData({ name: "", email: "", subject: "", message: "" });
-    alert("Thank you for your message! We'll get back to you soon.");
+    setSubmitStatus("success");
+    setIsSubmitting(false);
+
+    setTimeout(() => setSubmitStatus(null), 5000);
   };
 
   return (
     <div className="contact-container">
-      <section className="contact-hero">
-        <h1>Get In Touch</h1>
-        <p className="contact-subtitle">We'd love to hear from you</p>
+      <section className="page-header">
+        <div className="contact-hero-content">
+          <h1>Get In Touch</h1>
+          <p>We're here to help you reach new heights</p>
+        </div>
       </section>
 
       <section className="contact-content">
         <div className="contact-wrapper">
-          <div className="contact-info">
-            <h2>Contact Information</h2>
-            <div className="info-group">
-              <div className="info-item">
-                <h3>📍 Address</h3>
-                <p>123 Tech Street, Innovation City, TC 12345</p>
-              </div>
-              <div className="info-item">
-                <h3>📧 Email</h3>
-                <p>
-                  <a href="mailto:info@zerowings.com">info@zerowings.com</a>
-                </p>
-                <p>
-                  <a href="mailto:support@zerowings.com">
-                    support@zerowings.com
-                  </a>
-                </p>
-              </div>
-              <div className="info-item">
-                <h3>📞 Phone</h3>
-                <p>
-                  <a href="tel:+1234567890">+1 (234) 567-8900</a>
-                </p>
-              </div>
-              <div className="info-item">
-                <h3>⏰ Business Hours</h3>
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Saturday: 10:00 AM - 4:00 PM</p>
-                <p>Sunday: Closed</p>
+          <div className="contact-info-card">
+            <div className="contact-info">
+              <h2>Contact Information</h2>
+              <div className="info-group">
+                <div className="info-item">
+                  <div className="info-icon-wrapper">
+                    <img
+                      src={locationIcon}
+                      alt="Location"
+                      className="info-icon"
+                    />
+                  </div>
+                  <div className="info-content">
+                    <h3>Address</h3>
+                    <p>
+                      SIEMENS Center of Excellence, NIT Trichy, Tamil Nadu,
+                      India - 620015
+                    </p>
+                  </div>
+                </div>
+                <div className="info-item">
+                  <div className="info-icon-wrapper">
+                    <img src={emailIcon} alt="Email" className="info-icon" />
+                  </div>
+                  <div className="info-content">
+                    <h3>Email</h3>
+                    <p>
+                      <a href="mailto:sales@zerowingsaero.com">
+                        sales@zerowingsaero.com
+                      </a>
+                    </p>
+                  </div>
+                </div>
+                <div className="info-item">
+                  <div className="info-icon-wrapper">
+                    <img src={phoneIcon} alt="Phone" className="info-icon" />
+                  </div>
+                  <div className="info-content">
+                    <h3>Phone</h3>
+                    <p>
+                      <a href="tel:+919080539953">+91 90805 39953</a>
+                    </p>
+                  </div>
+                </div>
+                <div className="info-item">
+                  <div className="info-icon-wrapper">
+                    <img
+                      src={hoursIcon}
+                      alt="Business Hours"
+                      className="info-icon"
+                    />
+                  </div>
+                  <div className="info-content">
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p>Saturday: 10:00 AM - 4:00 PM</p>
+                    <p>Sunday: Closed</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <form className="contact-form" onSubmit={handleSubmit}>
             <h2>Send us a Message</h2>
+
+            {submitStatus === "success" && (
+              <div className="form-success-message">
+                ✓ Thank you! We'll get back to you within 24 hours.
+              </div>
+            )}
 
             <div className="form-group">
               <label htmlFor="name">Full Name</label>
@@ -121,8 +174,12 @@ export default function Contact() {
               ></textarea>
             </div>
 
-            <button type="submit" className="submit-button">
-              Send Message
+            <button
+              type="submit"
+              className="submit-button"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>
