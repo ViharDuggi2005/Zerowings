@@ -263,6 +263,7 @@ export default function Products() {
                     className="product-btn know-more-btn"
                     onClick={(e) => {
                       e.stopPropagation();
+                      navigate(`/products/${product.id}`);
                     }}
                   >
                     Know More

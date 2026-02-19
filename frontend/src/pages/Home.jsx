@@ -4,6 +4,10 @@ import vtolImage from "../assets/products/vtol.png";
 import dockImage from "../assets/products/dock.png";
 import thermalImage from "../assets/products/thermal.png";
 import facadeImage from "../assets/products/facade.png";
+import miniVtolImage from "../assets/products/mini_vtol.png";
+import miniDockImage from "../assets/products/mini_dock.png";
+import miniThermalImage from "../assets/products/mini_thermal.png";
+import miniFacadeImage from "../assets/products/mini_facade.png";
 import background from "../assets/images/background.png";
 import partnerImage from "../assets/images/partner1.png";
 import partnerImage2 from "../assets/images/partner2.png";
@@ -21,6 +25,7 @@ import homeImage6 from "../assets/home/home6.png";
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [partnerIndex, setPartnerIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
   const navigate = useNavigate();
 
   const galleryImages = [homeImage1, homeImage2, homeImage3, homeImage4];
@@ -32,13 +37,23 @@ export default function Home() {
     window.scrollTo(0, 0);
   }, []);
 
+  // Track mobile screen size
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const products = [
     {
       id: 1,
       name: "Moving Platform VTOL",
       bgName: "MARSV",
       description: "Autonomous Quadplane VTOL for Ship-Based Operations",
-      image: vtolImage,
+      image: isMobile ? miniVtolImage : vtolImage,
       tagline: "Autonomous Maritime VTOL System",
       overview:
         "An indigenous Indian prototype VTOL engineered for autonomous takeoff and landing on moving ships. Built for naval surveillance, emergency response, and maritime logistics in extreme sea conditions.",
@@ -76,7 +91,7 @@ The program is currently in prototype stage and aligns with India's vision for s
       name: "Zerowings Dock",
       bgName: "DRONE IN A BOX",
       description: "Autonomous Drone-in-a-Box System",
-      image: dockImage,
+      image: isMobile ? miniDockImage : dockImage,
       tagline: "Autonomous Drone-in-a-Box Infrastructure",
       overview:
         "Zerowings Dock is a fully autonomous Drone-in-a-Box system engineered for 24×7 remote operations. Designed for industrial and security deployments, it enables scheduled missions, automated battery swaps, and continuous readiness without on-site pilots.",
@@ -104,7 +119,7 @@ The program is currently in prototype stage and aligns with India's vision for s
       name: "Thermal Inspection Drone",
       bgName: "THERMAL DRONE",
       description: "Advanced Thermal Imaging for Enhanced Surveillance",
-      image: thermalImage,
+      image: isMobile ? miniThermalImage : thermalImage,
       tagline: "Thermal Imaging Inspection System",
       overview:
         "Advanced drone equipped with thermal imaging for infrastructure inspection, predictive maintenance, and surveillance in industrial environments.",
@@ -158,7 +173,7 @@ The program is currently in prototype stage and aligns with India's vision for s
       name: "Facade Cleaning Drone",
       bgName: "ZW SKYWASH",
       description: "Autonomous Drone Cleaning System for Building Facades",
-      image: facadeImage,
+      image: isMobile ? miniFacadeImage : facadeImage,
       tagline: "High-Altitude Building Cleaning System",
       overview:
         "Autonomous facade cleaning system for high-rise buildings using advanced pressure technology and stabilized arms for precise surface cleaning without scaffolding.",
@@ -257,7 +272,11 @@ The program is currently in prototype stage and aligns with India's vision for s
         }}
       >
         <div className="hero-background">{currentProduct.bgName}</div>
-        <div className="hero-content">
+        <div
+          className="hero-content"
+          onClick={() => navigate("/")}
+          style={{ cursor: "pointer" }}
+        >
           <div
             className="drone-image"
             data-product-id={currentProduct.id}

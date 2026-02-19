@@ -59,8 +59,8 @@ export default function Navbar() {
           </li>
           <li className="nav-item">
             <Link
-              to="/about2"
-              className={`nav-link ${location.pathname === "/about2" ? "active" : ""}`}
+              to="/about"
+              className={`nav-link ${location.pathname === "/about" ? "active" : ""}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               About us

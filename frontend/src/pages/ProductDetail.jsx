@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./ProductDetail.css";
 import vtolImage from "../assets/products/vtol1.png";
@@ -8,6 +8,7 @@ import facadeImage from "../assets/products/facade.png";
 
 export default function ProductDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("overview");
 
   // Scroll to top when component mounts or id changes
@@ -296,7 +297,9 @@ Zerowings Dock delivers reliable, heavy-duty autonomy—built for continuous rea
         <div className="hero-content">
           <h1>{product.name}</h1>
           <p className="tagline">{product.tagline}</p>
-          <button className="cta-button">Contact Us</button>
+          <button className="cta-button" onClick={() => navigate("/contact")}>
+            Contact Us
+          </button>
         </div>
         <img src={product.heroImage} alt={product.name} />
       </section>

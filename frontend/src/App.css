@@ -116,8 +116,35 @@ body {
   border: none;
   font-size: 28px;
   cursor: pointer;
-  padding: 0;
+  padding: 8px;
   color: inherit;
+  z-index: 1001;
+  position: relative;
+}
+
+/* Hamburger menu stays white on transparent navbar */
+.navbar-transparent .hamburger-menu {
+  color: #ffffff !important;
+}
+
+/* Hamburger menu is black on default navbar */
+.navbar-default .hamburger-menu {
+  color: #000000 !important;
+}
+
+/* Mobile: Always black text regardless of navbar state */
+@media (max-width: 480px) {
+  .navbar-transparent .nav-link {
+    color: #000000 !important;
+  }
+
+  .navbar-transparent .nav-brand {
+    color: #000000 !important;
+  }
+
+  .navbar-transparent .nav-link:hover {
+    color: #333333 !important;
+  }
 }
 
 /* Main Content */
@@ -145,6 +172,22 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
+
+/* Mobile background crop */
+@media (max-width: 768px) {
+  .hero-section {
+    background-attachment: scroll;
+    background-position: center top;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    background-size: 120% auto;
+    background-position: center 20%;
+  }
 }
 
 .hero-section::before {
@@ -226,7 +269,6 @@ body {
   color: #f2f2f2;
   line-height: 1.6;
   margin-bottom: 20px;
-  max-width: 90vw0px;
   max-width: 600px;
 }
 
@@ -383,6 +425,29 @@ body {
 
   .hero-section {
     padding: 80px 15px 15px;
+    height: auto;
+    min-height: calc(100vh + 80px);
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .product-title {
+    font-size: clamp(24px, 5vw, 40px);
+    letter-spacing: 1px;
+  }
+
+  .product-description {
+    font-size: clamp(13px, 3vw, 15px);
+    max-width: 100%;
+  }
+
+  .drone-image {
+    width: clamp(150px, 40vw, 250px);
+    height: clamp(150px, 40vw, 250px);
   }
 
   .carousel-arrow {
@@ -418,14 +483,35 @@ body {
     gap: 20px;
     padding: 0 15px;
     max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .gallery-grid-section {
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
 
   .partnerships-section {
     padding: 60px 20px;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .partnerships-header h2 {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+
+  .partnership-carousel {
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .partnership-carousel-content {
     padding: 0 15px;
+    width: 100%;
   }
 }
 
@@ -441,27 +527,28 @@ body {
 
   .hamburger-menu {
     display: block;
+    color: #ffffff;
+    z-index: 1001;
   }
 
   .nav-menu {
     position: fixed;
     top: 80px;
     right: 0;
-    bottom: 0;
     background-color: #ffffff;
     flex-direction: column;
     gap: 0;
     padding: 20px 20px;
-    max-width: 0;
-    overflow: hidden;
-    transition: max-width 0.3s ease;
-    width: 280px;
+    width: 150px;
     box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
     z-index: 999;
+    max-height: fit-content;
+    visibility: hidden;
+    overflow: hidden;
   }
 
   .nav-menu.mobile-menu-open {
-    max-width: 280px;
+    visibility: visible;
   }
 
   .nav-item {
@@ -485,11 +572,44 @@ body {
 
   .hero-section {
     padding: 80px 10px 10px;
+    height: auto;
+    min-height: calc(100vh + 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-content {
     padding: 0 10px;
     gap: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product-title {
+    font-size: clamp(20px, 5vw, 32px);
+    letter-spacing: 1px;
+  }
+
+  .product-description {
+    font-size: clamp(12px, 3vw, 14px);
+    max-width: 100%;
+    padding: 0 5px;
+  }
+
+  .drone-image {
+    width: clamp(150px, 50vw, 200px);
+    height: clamp(150px, 50vw, 200px);
+  }
+
+  .drone-placeholder {
+    font-size: 80px;
+  }
+
+  .buy-button {
+    padding: 12px 30px;
+    font-size: 13px;
   }
 
   .carousel-arrow {
@@ -518,6 +638,8 @@ body {
 
   .gallery-grid-section {
     padding: 40px 0;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .gallery-grid {
@@ -525,10 +647,13 @@ body {
     gap: 15px;
     padding: 0 15px;
     max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .gallery-grid-item {
     aspect-ratio: 16 / 12;
+    width: 100%;
   }
 
   .product-card-image {
@@ -541,29 +666,42 @@ body {
 
   .partnerships-section {
     padding: 50px 15px;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
 
   .partnerships-header {
     margin-bottom: 30px;
+    width: 100%;
   }
 
   .partnerships-header h2 {
     margin-bottom: 10px;
+    font-size: clamp(24px, 5vw, 36px);
   }
 
   .partnerships-header p {
     font-size: 13px;
+    max-width: 100%;
+  }
+
+  .partnership-carousel {
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .partnership-carousel-content {
     gap: 12px;
     padding: 0 10px;
+    width: 100%;
   }
 
   .partnership-card {
     padding: 18px;
     width: clamp(180px, 75vw, 220px);
     min-width: clamp(180px, 75vw, 220px);
+    flex-shrink: 0;
   }
 
   .partnership-logo {
@@ -585,6 +723,15 @@ body {
   .partnership-card p {
     font-size: 10px;
     line-height: 1.5;
+  }
+
+  /* Ensure all containers have proper box-sizing */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow-x: hidden;
   }
 }
 

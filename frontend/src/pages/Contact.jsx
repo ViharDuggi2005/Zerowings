@@ -3,6 +3,7 @@ import locationIcon from "../assets/icons/location.png";
 import emailIcon from "../assets/icons/email.png";
 import phoneIcon from "../assets/icons/phone.png";
 import hoursIcon from "../assets/icons/hours.png";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -26,18 +27,37 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    console.log("Form submitted:", formData);
+    setSubmitStatus(null);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      await emailjs.send(
+        "YOUR_SERVICE_ID", // 🔁 replace
+        "YOUR_TEMPLATE_ID", // 🔁 replace
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        "YOUR_PUBLIC_KEY", // 🔁 replace
+      );
 
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setSubmitStatus("success");
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      setSubmitStatus("error");
+    }
+
     setIsSubmitting(false);
-
-    setTimeout(() => setSubmitStatus(null), 5000);
   };
+  {
+    submitStatus === "error" && (
+      <div className="form-error-message">
+        ❌ Something went wrong. Please try again.
+      </div>
+    );
+  }
 
   return (
     <div className="contact-container">
