@@ -293,7 +293,10 @@ The program is currently in prototype stage and aligns with India's vision for s
           <p className="product-description">{currentProduct.description}</p>
           <button
             className="buy-button"
-            onClick={() => navigate(`/products/${currentProduct.id}`)}
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(`/products/${currentProduct.id}`);
+            }}
           >
             KNOW MORE
           </button>
