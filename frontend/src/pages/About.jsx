@@ -68,7 +68,7 @@ export default function About() {
               Become India's go-to provider for industrial drone automation.
               Starting with infrastructure cleaning and expanding into
               multi-role applications, we're committed to reshaping how
-              industries handle risky, repetitive, and dirty jobs—autonomously,
+              industries handle risky, repetitive, and dirty jobs autonomously,
               affordably, and safely.
             </p>
           </div>

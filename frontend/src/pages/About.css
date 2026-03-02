@@ -77,7 +77,7 @@
 }
 
 .about2-card-title {
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: 2px;
   color: #ffffff;
@@ -90,8 +90,8 @@
 }
 
 .about2-card-content p {
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 19px;
+  line-height: 1.8;
   color: rgba(255, 255, 255, 0.95);
   margin: 0;
 }
@@ -99,7 +99,7 @@
 /* Mission & Vision Section */
 .about2-mission-vision-section {
   background: #f8f9fa;
-  padding: 40px 60px 80px;
+  padding: 40px 60px 40px;
 }
 
 .about2-mission-vision-grid {
@@ -150,7 +150,7 @@
 
 .about2-vision-card p,
 .about2-mission-card p {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.7;
   color: #555;
   margin: 0;

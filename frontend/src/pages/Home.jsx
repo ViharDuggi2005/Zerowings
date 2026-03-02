@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import ChatPopup from "../components/ChatPopup";
 import vtolImage from "../assets/products/vtol.png";
 import dockImage from "../assets/products/dock.png";
 import thermalImage from "../assets/products/thermal.png";
@@ -263,6 +264,7 @@ The program is currently in prototype stage and aligns with India's vision for s
 
   return (
     <div className="home-container">
+      <ChatPopup />
       <div
         className="hero-section"
         style={{

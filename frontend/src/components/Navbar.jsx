@@ -1,11 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useCart } from "../context/CartContext";
 import logo from "../assets/logos/zw_logo.png";
 
 export default function Navbar() {
   const location = useLocation();
+  const { getCartCount } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const cartCount = getCartCount();
 
   useEffect(() => {
     // Reset scrolled state when navigating to a different page
@@ -77,6 +80,15 @@ export default function Navbar() {
           </li>
           <li className="nav-item">
             <Link
+              to="/store"
+              className={`nav-link ${location.pathname === "/store" ? "active" : ""}`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Store
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
               to="/services"
               className={`nav-link ${location.pathname === "/services" ? "active" : ""}`}
               onClick={() => setMobileMenuOpen(false)}
@@ -100,6 +112,16 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact us
+            </Link>
+          </li>
+          <li className="nav-item cart-icon-item">
+            <Link
+              to="/cart"
+              className="cart-icon"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              🛒
+              {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
             </Link>
           </li>
         </ul>
